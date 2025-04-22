@@ -73,9 +73,10 @@ function App() {
       </div>
 
       <div className="hero-title">
-        <img src={logo} alt="ReelVibes logo" className="logo-icon" />
         ReelVibes
+        <img src={logo} alt="ReelVibes logo" className="logo-icon" />
       </div>
+
 
       <div className="hero-description">
         Your personalized space for discovering movies that match your mood, interests, and vibe. Whether you're in the mood for something nostalgic, thrilling, feel-good, or unexpected, ReelVibes curates recommendations tailored to how you're feeling.
