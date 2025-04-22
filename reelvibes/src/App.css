@@ -137,7 +137,7 @@ body {
 /*Description*/
 .hero-description {
   position: absolute;
-  top: 500px; /* adjust depending on hero-title position */
+  top: 400px; /* adjust depending on hero-title position */
   left: 200px;
   max-width: 600px;
   font-size: 18px;
@@ -151,9 +151,9 @@ body {
 /*ReelVibes Title*/
 .hero-title {
   position: absolute;
-  top: 300px;
+  top: 200px;
   left: 200px;
-  font-size: 100px;
+  font-size: 120px;
   color: white;
   font-weight: bold;
   font-family: 'Helvetica Neue', sans-serif;
@@ -185,5 +185,31 @@ body {
     0 0 5px #00bfff,
     0 0 10px #00bfff,
     0 0 20px #00bfff;
+}
+
+.start-button-container {
+  position: absolute;
+  top: 400px;     /* move up/down */
+  right: 80px;    /* move left/right */
+  z-index: 10;
+}
+
+
+.start-button {
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
+}
+
+.start-button:hover {
+  background-color: #009acd;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
 }
 

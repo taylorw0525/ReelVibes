@@ -83,6 +83,19 @@ function App() {
         <br /><br />
         Explore trending films, save your favorites, build custom playlists, and let the vibe guide your next watch.
       </div>
+
+      <div className="start-button-container">
+        <button className="start-button">Start Now</button>
+      </div>
+
+
+
+
+
+
+
+
+
     </>
   );
 }
