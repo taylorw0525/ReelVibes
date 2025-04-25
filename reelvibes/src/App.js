@@ -34,17 +34,6 @@ const posters = [
 function App() {
   return (
     <>
-      <nav className="navbar">
-        <div className="nav-left">Welcome</div>
-        <div className="nav-center">
-          <input type="text" placeholder="Search..." className="search-input" />
-        </div>
-        <div className="nav-right">
-          <span className="nav-item">Saved Playlist</span>
-          <span className="nav-item">Profile</span>
-        </div>
-      </nav>
-
       <div className="App">
         <div className="App-background"></div>
 
