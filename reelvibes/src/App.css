@@ -297,3 +297,28 @@ body {
   font-size: 15px;
   color: #ccc;
 }
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  text-decoration:none;
+}
+
+nav a:hover {
+  color: #b7d1e9;
+  text-decoration: none;
+}
+
