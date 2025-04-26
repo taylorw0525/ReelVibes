@@ -22,13 +22,16 @@ import starWars from './MoviePosters/Star Wars.jpg';
 import tangled from './MoviePosters/Tangled.jpg';
 import twilight from './MoviePosters/Twilight.jpg';
 import us from './MoviePosters/us.jpg';
-import logo from './movie reel/logo.png'; // your logo
+import logo from './movie reel/logo.png';
 
-const posters = [
-  alice, avatar, avengers, barbie, blackPanther,
-  captMarvel, cars, darkNight, expandables, frozen,
-  harryPotter, hobbit, hungerGames, inception, notebook,
-  pirates, shining, starWars, tangled, twilight, us
+const postersUp = [
+  alice, avatar, barbie, frozen, harryPotter,
+  hobbit, notebook, pirates, tangled, twilight
+];
+
+const postersDown = [
+  avengers, blackPanther, captMarvel, cars, darkNight,
+  expandables, hungerGames, inception, shining, us
 ];
 
 function App() {
@@ -51,51 +54,71 @@ function App() {
         <div className="infinite-poster-right">
           <div className="scroll-column up">
             <div className="poster-track">
-              {posters.map((src, index) => (
-                <img src={src} alt={`Poster ${index}`} key={`up-${index}`} className="poster" />
+              {postersUp.map((src, index) => (
+                <img src={src} alt={`Poster up ${index}`} key={`up-${index}`} className="poster" />
               ))}
-              {posters.map((src, index) => (
-                <img src={src} alt={`Poster duplicate ${index}`} key={`up-dup-${index}`} className="poster" />
+              {postersUp.map((src, index) => (
+                <img src={src} alt={`Poster up duplicate ${index}`} key={`up-dup-${index}`} className="poster" />
               ))}
             </div>
           </div>
           <div className="scroll-column down">
             <div className="poster-track">
-              {posters.map((src, index) => (
-                <img src={src} alt={`Poster ${index}`} key={`down-${index}`} className="poster" />
+              {postersDown.map((src, index) => (
+                <img src={src} alt={`Poster down ${index}`} key={`down-${index}`} className="poster" />
               ))}
-              {posters.map((src, index) => (
-                <img src={src} alt={`Poster duplicate ${index}`} key={`down-dup-${index}`} className="poster" />
+              {postersDown.map((src, index) => (
+                <img src={src} alt={`Poster down duplicate ${index}`} key={`down-dup-${index}`} className="poster" />
               ))}
             </div>
           </div>
         </div>
+
+        <div className="hero-title">
+          ReelVibes
+          <img src={logo} alt="ReelVibes logo" className="logo-icon" />
+        </div>
+
+        <div className="hero-description">
+          Your personalized space for discovering movies that match your mood, interests, and vibe.
+          
+        </div>
+
+        <div className="start-button-container">
+          <button className="start-button">Start Now</button>
+        </div>
+
+        <div className="feature-boxes bottom-row">
+          <div className="feature-box">
+            <span className="feature-icon">✔</span>
+            <div>
+              <h4 className="feature-title">Free Sign Up</h4>
+              <p className="feature-text">Join with your email account.</p>
+            </div>
+          </div>
+          <div className="feature-box">
+            <span className="feature-icon">✔</span>
+            <div>
+              <h4 className="feature-title">Easy to Use</h4>
+              <p className="feature-text">Simple UI made for everyone.</p>
+            </div>
+          </div>
+          <div className="feature-box">
+            <span className="feature-icon">✔</span>
+            <div>
+              <h4 className="feature-title">Current Movies</h4>
+              <p className="feature-text">Watch trending films anytime.</p>
+            </div>
+          </div>
+          <div className="feature-box">
+            <span className="feature-icon">✔</span>
+            <div>
+              <h4 className="feature-title">Real-Time Reviews</h4>
+              <p className="feature-text">See what users are saying now.</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="hero-title">
-        ReelVibes
-        <img src={logo} alt="ReelVibes logo" className="logo-icon" />
-      </div>
-
-
-      <div className="hero-description">
-        Your personalized space for discovering movies that match your mood, interests, and vibe. Whether you're in the mood for something nostalgic, thrilling, feel-good, or unexpected, ReelVibes curates recommendations tailored to how you're feeling.
-        <br /><br />
-        Explore trending films, save your favorites, build custom playlists, and let the vibe guide your next watch.
-      </div>
-
-      <div className="start-button-container">
-        <button className="start-button">Start Now</button>
-      </div>
-
-
-
-
-
-
-
-
-
     </>
   );
 }
