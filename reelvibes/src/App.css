@@ -297,8 +297,6 @@ body {
   font-size: 15px;
   color: #ccc;
 }
-
-
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -329,3 +327,4 @@ nav a:hover {
   color: #b7d1e9;
   text-decoration: none;
 }
+
