@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './App.css';
 
 import alice from './MoviePosters/Alice in Wonderland.jpg';
@@ -74,7 +75,9 @@ function App() {
         </div>
 
         <div className="start-button-container">
-          <button className="start-button">Start Now</button>
+          <Link to="/moodpage">
+            <button className="start-button">Start Now</button>
+          </Link>
         </div>
 
         <div className="feature-boxes bottom-row">
