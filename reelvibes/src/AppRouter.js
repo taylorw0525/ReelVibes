@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./App"; // Default app component
 import Navbar from "./common/Navbar";
 import MoodPage from "./MoodSelection/MoodPage"; // Mood page component
+import MoviePage from "./MoodSelection/MoviePage";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,9 @@ const AppRouter = () => {
 
         {/* "/moodpage" renders the MoodPage component */}
         <Route path="/moodpage" element={<MoodPage />} />
+
+        {/* "/moviepage" renders the MoviePage component*/}
+        <Route path="/moviepage" element={<MoviePage />} />
       </Routes>
     </Router>
   );

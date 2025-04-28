@@ -109,3 +109,42 @@
     max-width: 600px; /* Limit width for better readability */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
+
+  .movie-page-text {
+    text-align: center;
+  }
+
+  .movie-page-text p {
+    text-align: center;
+    margin: 0 auto; /*Center block elements horizontally*/
+  }
+
+  .movie-page-title-glow {
+    text-shadow:
+    0 0 5px #00bfff,
+    0 0 10px #00bfff,
+    0 0 20px #00bfff,
+    0 0 40px #00bfff !important;
+  }
+
+  .movie-info-section {
+    display: flex;
+    flex-wrap:nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 40px;
+  }
+
+  .movie-poster {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .movie-info-text {
+    text-align: left;
+    color: white;
+    min-width: 250px;
+    padding-top: 20px;
+  }
