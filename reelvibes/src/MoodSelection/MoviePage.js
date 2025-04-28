@@ -42,7 +42,7 @@ const MoviePage = () => {
                     </div>
                     
                     <div className="movie-page-text">
-                        <h2 className="movie-ind-title" style={{ marginTop: "25px"}}>
+                        <h2 className="movie-ind-title" style={{ marginTop: "30px"}}>
                             Write a Review
                         </h2>
                         <textarea placeholder="Write your review..." rows="5" cols="50" />
