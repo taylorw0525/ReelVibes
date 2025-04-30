@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
+import logoReel from './resources/images/logo-reel.png'; // adjust the file extension if it's .jpg or .svg
+
 
 function App() {
   return (
     <div className="App">
+      
       {/* Fixed background image and overlay */}
       <div className="background-container">
         <div className="background-overlay"></div>
@@ -13,9 +16,18 @@ function App() {
 
       {/* Foreground content */}
       <div className="content-layer">
-        <div className="title-container">
-          <h1 className="app-title">Reel Vibes</h1>
-        </div>
+      <p className="headline">Feel it. Watch it. Reel it in.</p>
+        
+          <div className="title-container">
+          
+            <div className="title-content">
+              <h1 className="app-title">Reel Vibes</h1>
+              <img src={logoReel} alt="Reel Vibes Logo" className="logo-image" />
+            </div>
+            <p className="tagline">Discover the perfect movie to match your mood.</p>
+          </div>
+
+
 
         <div className="start-button-container">
           <Link to="/moodpage">

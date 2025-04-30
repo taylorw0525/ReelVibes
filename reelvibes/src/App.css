@@ -33,7 +33,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(19, 19, 19, 0.8);
+  background-color: rgba(19, 19, 19, 0.89);
   z-index: 2;
 }
 
@@ -69,6 +69,7 @@
 
 .nav-left {
   font-weight: bold;
+  font-size: 24px;
 }
 
 .nav-center {
@@ -94,6 +95,8 @@
   cursor: pointer;
   color: white;
   text-decoration: none;
+  font-size: 20px; /* ⬅️ Increase this value to make it bigger */
+  font-weight: 500; /* Optional: make it bolder */
 }
 
 .nav-item:hover {
@@ -104,7 +107,7 @@
 .start-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 160px;
+  margin-top: 120px;
 }
 
 .start-button {
@@ -127,40 +130,42 @@
 
 /* Feature boxes */
 .feature-boxes.bottom-row {
-  margin-top: 100px;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 20px;
+  flex-direction: column;          /* Stack vertically */
+  align-items: flex-end;           /* Align to the right */
+  gap: 40px;                       /* Space between boxes */
+  position: absolute;
+  top: 200px;                      /* Adjust vertical position */
+  right: 50px;                     /* Adjust horizontal position */
+  z-index: 3;
 }
 
 .feature-box {
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(134, 129, 129, 0.469);
   color: white;
-  padding: 10px 14px;
+  padding: 10px 50px;
   border-radius: 10px;
-  font-size: 14px;
-  width: 180px;
+  font-size: 15px;
+  width: 160px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  box-shadow: 0 0 6px rgba(23, 22, 22, 0);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.953);
 }
 
 .feature-icon {
-  font-size: 16px;
+  font-size: 20px;
   color: #00bfff;
 }
 
 .feature-title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
 
 .feature-text {
-  font-size: 13px;
+  font-size: 20px; 
   color: #ccc;
   margin-top: 4px;
 }
@@ -171,10 +176,71 @@
   margin-bottom: 30px;
 }
 
+.title-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
+}
+
+
 .app-title {
-  font-size: 150px;
+  font-size: 180px;
   color: white;
-  text-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
-  margin-top: 20px;
+  font-weight: bold;
+  margin-top: 200px;
+
+  /* Blue glow from the bottom only */
+  text-shadow:
+    0 8px 15px rgba(0, 195, 255, 0.6),
+    0 12px 25px rgba(0, 170, 255, 0.3),
+    0 18px 40px rgba(0, 140, 255, 0.2);
+}
+
+
+
+
+.tagline {
+  color: #fff1f1;
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0, 195, 255, 0.2);
+  margin-top: -30px;
   font-weight: bold;
 }
+
+
+
+.headline {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  font-size: 35px;
+  font-style: italic;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 195, 255, 0.3);
+  z-index: 2;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-image {
+  animation: spin 20s linear infinite;
+  transform-origin: center;
+  width: 100px; /* adjust as needed */
+  height: auto;
+  margin-top: 110px;
+}
+
