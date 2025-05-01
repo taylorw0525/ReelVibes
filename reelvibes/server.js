@@ -40,6 +40,19 @@ const Playlist = mongoose.model('Playlist', new mongoose.Schema({
   movies: [String]
 }));
 
+// Mood mapping based on genre
+const moodMap = {
+  "Comedy": "Happy",
+  "Drama": "Sad",
+  "Romance": "Romantic",
+  "Horror": "Scared",
+  "Action": "Excited",
+  "Adventure": "Adventurous ",
+  "Sci-Fi": "Curious",
+  "Fantasy": "Imaginative",
+  "Animation": "Playful"
+};
+
 // Routes
 app.post('/api/users/register', async (req, res) => {
   const { username, email, password } = req.body;
@@ -60,23 +73,9 @@ app.get('/api/playlists/:userId', async (req, res) => {
   res.json(playlists);
 });
 
-// TMDB API Key
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
-// Mood mapping based on genre
-const moodMap = {
-  "Comedy": "Happy 😊",
-  "Drama": "Sad 😢",
-  "Romance": "Romantic 💖",
-  "Horror": "Scared 😱",
-  "Action": "Excited 😆",
-  "Adventure": "Adventurous 🧗‍♂️",
-  "Sci-Fi": "Curious 🤖",
-  "Fantasy": "Imaginative 🧙‍♂️",
-  "Animation": "Playful 🎨"
-};
-
-// Movie search by title
+// Search movies by title
 app.get('/api/movies/search', async (req, res) => {
   const query = req.query.q;
   try {
@@ -93,10 +92,11 @@ app.get('/api/movies/search', async (req, res) => {
   }
 });
 
-// Mood detection based on title
+// Get mood based on title using genres
 app.get('/api/mood/from-title', async (req, res) => {
   const title = req.query.title;
   try {
+    // Step 1: Search for the movie
     const searchRes = await axios.get(`https://api.themoviedb.org/3/search/movie`, {
       params: {
         api_key: TMDB_API_KEY,
@@ -107,8 +107,8 @@ app.get('/api/mood/from-title', async (req, res) => {
     const movie = searchRes.data.results[0];
     if (!movie) return res.status(404).json({ error: 'Movie not found' });
 
-    const movieId = movie.id;
-    const movieDetailsRes = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}`, {
+    // Step 2: Get full movie details
+    const movieDetailsRes = await axios.get(`https://api.themoviedb.org/3/movie/${movie.id}`, {
       params: {
         api_key: TMDB_API_KEY
       }
@@ -123,6 +123,7 @@ app.get('/api/mood/from-title', async (req, res) => {
       genres,
       mood
     });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to fetch mood from title' });
