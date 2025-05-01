@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
@@ -59,19 +60,73 @@ app.get('/api/playlists/:userId', async (req, res) => {
   res.json(playlists);
 });
 
-// TMDB API (example endpoint using axios)
-const axios = require('axios');
+// TMDB API Key
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
+// Mood mapping based on genre
+const moodMap = {
+  "Comedy": "Happy 😊",
+  "Drama": "Sad 😢",
+  "Romance": "Romantic 💖",
+  "Horror": "Scared 😱",
+  "Action": "Excited 😆",
+  "Adventure": "Adventurous 🧗‍♂️",
+  "Sci-Fi": "Curious 🤖",
+  "Fantasy": "Imaginative 🧙‍♂️",
+  "Animation": "Playful 🎨"
+};
+
+// Movie search by title
 app.get('/api/movies/search', async (req, res) => {
   const query = req.query.q;
-  const response = await axios.get(`https://api.themoviedb.org/3/search/movie`, {
-    params: {
-      api_key: TMDB_API_KEY,
-      query
-    }
-  });
-  res.json(response.data);
+  try {
+    const response = await axios.get(`https://api.themoviedb.org/3/search/movie`, {
+      params: {
+        api_key: TMDB_API_KEY,
+        query
+      }
+    });
+    res.json(response.data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch movie data' });
+  }
+});
+
+// Mood detection based on title
+app.get('/api/mood/from-title', async (req, res) => {
+  const title = req.query.title;
+  try {
+    const searchRes = await axios.get(`https://api.themoviedb.org/3/search/movie`, {
+      params: {
+        api_key: TMDB_API_KEY,
+        query: title
+      }
+    });
+
+    const movie = searchRes.data.results[0];
+    if (!movie) return res.status(404).json({ error: 'Movie not found' });
+
+    const movieId = movie.id;
+    const movieDetailsRes = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}`, {
+      params: {
+        api_key: TMDB_API_KEY
+      }
+    });
+
+    const genres = movieDetailsRes.data.genres.map(g => g.name);
+    const matchedGenre = genres.find(genre => moodMap[genre]);
+    const mood = matchedGenre ? moodMap[matchedGenre] : "Neutral 😐";
+
+    res.json({
+      title: movie.title,
+      genres,
+      mood
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch mood from title' });
+  }
 });
 
 // Start Server
