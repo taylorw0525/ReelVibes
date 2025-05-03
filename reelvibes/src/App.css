@@ -1,13 +1,28 @@
-.App {
+/* Normalize styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
 }
 
-/* Background image and overlay layers */
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+.App {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+/* Background and overlay */
 .background-container {
   position: fixed;
   top: 0;
@@ -41,11 +56,12 @@
 .content-layer {
   position: relative;
   z-index: 3;
+  padding-top: 100px;
 }
 
-/* Navbar styles (unchanged) */
+/* Navbar */
 .navbar {
-  position: fixed; /* changed from sticky */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,21 +71,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 60px;
+  padding: 0 3rem;
   z-index: 999;
   backdrop-filter: blur(8px);
 }
 
-.content-layer {
-  position: relative;
-  z-index: 3;
-  padding-top: 100px; /* creates space below fixed navbar */
-}
-
-
 .nav-left {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .nav-center {
@@ -80,7 +89,7 @@
 
 .search-input {
   width: 60%;
-  padding: 8px;
+  padding: 0.5rem;
   border-radius: 20px;
   border: none;
   font-size: 1rem;
@@ -88,15 +97,15 @@
 
 .nav-right {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .nav-item {
   cursor: pointer;
   color: white;
   text-decoration: none;
-  font-size: 20px; /* ⬅️ Increase this value to make it bigger */
-  font-weight: 500; /* Optional: make it bolder */
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .nav-item:hover {
@@ -107,15 +116,15 @@
 .start-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: 6rem;
 }
 
 .start-button {
   background-color: #00bfff;
   color: white;
   border: none;
-  padding: 14px 30px;
-  font-size: 18px;
+  padding: 0.9rem 2rem;
+  font-size: 1.125rem;
   font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
@@ -131,93 +140,82 @@
 /* Feature boxes */
 .feature-boxes.bottom-row {
   display: flex;
-  flex-direction: column;          /* Stack vertically */
-  align-items: flex-end;           /* Align to the right */
-  gap: 40px;                       /* Space between boxes */
-  position: absolute;
-  top: 200px;                      /* Adjust vertical position */
-  right: 50px;                     /* Adjust horizontal position */
-  z-index: 3;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5rem;       /* previously 40px */
+  margin-top: 5rem;  /* previously 80px */
 }
+
 
 .feature-box {
   background-color: rgba(134, 129, 129, 0.469);
   color: white;
-  padding: 10px 50px;
+  padding: 0.5rem 0.5rem;
   border-radius: 10px;
-  font-size: 15px;
-  width: 160px;
+  font-size: 1rem;
+  width: 250px;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 0.75rem;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.953);
 }
 
 .feature-icon {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #00bfff;
 }
 
 .feature-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   margin: 0;
 }
 
 .feature-text {
-  font-size: 20px; 
+  font-size: 1.1rem;
   color: #ccc;
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
-
+/* Title */
 .title-container {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .title-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
-
+  gap: 3rem;
 }
 
-
 .app-title {
-  font-size: 180px;
+  font-size: 7rem;
   color: white;
   font-weight: bold;
-  margin-top: 200px;
-
-  /* Blue glow from the bottom only */
+  margin-top: 12rem;
   text-shadow:
     0 8px 15px rgba(0, 195, 255, 0.6),
     0 12px 25px rgba(0, 170, 255, 0.3),
     0 18px 40px rgba(0, 140, 255, 0.2);
 }
 
-
-
-
 .tagline {
   color: #fff1f1;
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   text-shadow: 0 2px 6px rgba(0, 195, 255, 0.2);
-  margin-top: -30px;
+  margin-top: 2rem;
   font-weight: bold;
 }
 
-
-
 .headline {
   position: absolute;
-  top: 60px;
+  top: 80px;
   left: 10px;
-  font-size: 35px;
+  font-size: 2rem;
   font-style: italic;
   color: white;
   text-shadow: 0 2px 10px rgba(0, 195, 255, 0.3);
@@ -226,7 +224,7 @@
   font-weight: bold;
 }
 
-
+/* Spinning logo */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -239,8 +237,7 @@
 .logo-image {
   animation: spin 20s linear infinite;
   transform-origin: center;
-  width: 100px; /* adjust as needed */
+  width: 5rem;
   height: auto;
-  margin-top: 110px;
+  margin-top: 13rem;
 }
-

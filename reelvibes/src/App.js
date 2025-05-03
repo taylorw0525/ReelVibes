@@ -30,7 +30,7 @@ function App() {
 
 
         <div className="start-button-container">
-          <Link to="/moodpage">
+          <Link to="/login">
             <button className="start-button">Start Now</button>
           </Link>
         </div>
