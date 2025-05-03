@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import logoReel from './resources/images/logo-reel.png'; // adjust the file extension if it's .jpg or .svg
+import { AuthContext } from "./context/AuthContext";
 
 
 function App() {
+  const { user } = useContext(AuthContext);
   return (
     <div className="App">
       
@@ -30,9 +32,12 @@ function App() {
 
 
         <div className="start-button-container">
+        {user ? (<Link to="/moodpage">
+            <button className="start-button">Select Mood</button>
+          </Link>):(
           <Link to="/login">
             <button className="start-button">Start Now</button>
-          </Link>
+          </Link>)}
         </div>
 
         <div className="feature-boxes bottom-row">
