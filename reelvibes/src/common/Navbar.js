@@ -28,7 +28,9 @@ const Navbar = () => {
       <Link to="/moodpage" className="nav-item">
             Mood Selection
           </Link>
-        <span className="nav-item">Saved Playlist</span>
+          <Link to="/my-playlist" className="nav-item">
+          Saved Playlist
+          </Link>
         <span className="nav-item">Profile</span>
       </div>
     </nav>

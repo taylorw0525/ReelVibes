@@ -56,11 +56,7 @@ const MoodPage = () => {
       </div>
       {/* Placeholder: Display related movies */}
       <div className="movies-section">
-        {selectedMood ? (
-          <p>Displaying movies for the "{selectedMood}" mood.</p>
-        ) : (
-          <p>Select a mood to see movie recommendations.</p>
-        )}
+
         </div>
         <section>
         {loading ? (
