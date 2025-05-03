@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import "../App.css";
 import "./Login.css";
 
@@ -7,16 +8,34 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const { login } = useContext(AuthContext);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    // Placeholder: handle login logic here
-    console.log("Logging in with:", email, password);
-
-    // Redirect to home page
-    navigate("/");
-  };
+  
+    try {
+      const res = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      const data = await res.json();
+  
+      if (res.ok) {
+        console.log("Login successful:", data);
+        login(data); // store user globally
+        navigate("/"); // Redirect to home
+      } else {
+        setError(data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Something went wrong. Please try again.");
+    }
+  };  
 
   return (
     <div className="App">

@@ -241,3 +241,21 @@ html, body {
   height: auto;
   margin-top: 13rem;
 }
+
+.logout-button {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
