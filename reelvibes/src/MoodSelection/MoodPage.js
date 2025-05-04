@@ -40,7 +40,7 @@ const MoodPage = () => {
   return (
     <div className="mood-page movie-page">
       <div className="overlay">
-        <p className="title-description">Select a mood to see movie recommendations.</p>
+        <p className="title-description">Select a mood to see movie recommendations</p>
 
         <div className="mood-buttons">
           {moods.map((mood) => (
