@@ -58,9 +58,8 @@ const PlaylistPage = () => {
   if (loading) return <p style={{ color: '#fff', textAlign: 'center' }}>Loading playlists...</p>;
 
   return (
-    <div className='SavedPlaylistPage'>
+    <div className='SavedPlaylistPage background-image'>
       <h2 style={{ color: '#fff' }}>Your Saved Playlists</h2>
-
       {isEmpty ? (
         <div style={{ color: '#fff', textAlign: 'center', marginTop: '40px' }}>
           <p>Nothing here yet. Search movies and add them to your playlist!</p>
