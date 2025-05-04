@@ -101,7 +101,7 @@
   }
   
   .playlist-btn.add {
-    background-color: #4CAF50; /* soft green */
+    background-color: #4CAF5044; /* soft green */
   }
   
   .playlist-btn.add:hover {
