@@ -7,7 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 
 
 const Signup = () => {
-  const { setUser } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     first: "",
@@ -23,7 +23,9 @@ const Signup = () => {
     setError("");
   };
 
+  // 
   const validatePassword = (password) => {
+
     const hasNumber = /\d/;
     const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/;
     return (
@@ -79,7 +81,7 @@ const Signup = () => {
           localStorage.setItem("user", JSON.stringify(loginData));
         
           // Update Auth Context so Navbar updates immediately
-          setUser(loginData);
+          login(loginData);
         
           // Redirect to home
           navigate("/");
