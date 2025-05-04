@@ -48,7 +48,7 @@ html, body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(19, 19, 19, 0.89);
+  background-color: rgba(0, 0, 0, 0.881);
   z-index: 2;
 }
 
@@ -77,8 +77,10 @@ html, body {
 }
 
 .nav-left {
+  font-size: 1.5rem; /* You can increase this as needed */
   font-weight: bold;
-  font-size: 1.5rem;
+  color: white;
+  margin-left: 20px;
 }
 
 .nav-center {
@@ -194,7 +196,7 @@ html, body {
   font-size: 7rem;
   color: white;
   font-weight: bold;
-  margin-top: 12rem;
+  margin-top: 7rem;
   text-shadow:
     0 8px 15px rgba(0, 195, 255, 0.6),
     0 12px 25px rgba(0, 170, 255, 0.3),
@@ -239,7 +241,7 @@ html, body {
   transform-origin: center;
   width: 5rem;
   height: auto;
-  margin-top: 13rem;
+  margin-top: 8rem;
 }
 
 .logout-button {
@@ -257,5 +259,23 @@ html, body {
 .logout-button:hover {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.SavedPlaylistPage{
+  padding: 100px 20px 20px 20px;
+  background-color: #302f2f;
+  height: 100vh;
+  text-align: center;
+}
+
+.saved-playlist-background-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("./resources/images/dark-large-d.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 

@@ -10,6 +10,7 @@ This project uses **MERN stack (MongoDB, Express, React, Node.js)** and supports
 ### 1. Clone the Repo
 ```bas
 git clone https://github.com/taylorw0525/ReelVibes.git
+cd ReelVibes
 cd reelvibes
 ```
 
@@ -26,9 +27,9 @@ Install backend dependencies:
 The backend server runs on: http://localhost:5000
 
 ### 4. Setup & Run the Frontend (React App)
+Open new terminal 
 ```
-cd ..
-cd reelvibe
+cd reelvibes
 ```
 ### 5 Install frontend dependencies and run front end:
 
@@ -36,6 +37,9 @@ cd reelvibe
 npm install
 npm start
 ```
+
+Application should be starting now.. 
+Important tips is you need to start backend first (```node server```) from backend folder and then front end```npm start``` form reelvibes folder
 
 ## 💡 Useful Notes
 - After signup, users are auto-logged in and session persists using localStorage.

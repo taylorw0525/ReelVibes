@@ -8,12 +8,16 @@
   
   .movie-card-link {
     text-decoration: none;
-    color: inherit;
+    color: #fff;
     transition: transform 0.3s ease;
   }
   
   .movie-card-link:hover {
     transform: scale(1.05);
+  }
+  
+  .movie-card-container {
+    max-width: 250px;
   }
   
   .movie-card {
@@ -41,6 +45,7 @@
     display: flex;
     flex-direction: column;
   }
+
   
   .movie-title {
     font-size: 18px;
@@ -71,8 +76,43 @@
   }
   
   .movie-card a {
-    color: #5d9ebd;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
   }
+  .playlist-btn {
+    background-color: rgba(255, 255, 255, 0.1); /* subtle light overlay */
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 6px 12px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center;
+  }
+  
+  .playlist-btn:hover {
+    background-color: #333; /* subtle dark grey on hover */
+    transform: scale(1.05);
+  }
+  
+  .playlist-btn.add {
+    background-color: #4CAF50; /* soft green */
+  }
+  
+  .playlist-btn.add:hover {
+    background-color: #45A049; /* slightly darker green on hover */
+  }
+  
+  .playlist-btn.remove {
+    background-color: #E57373; /* soft red (salmon tone) */
+  }
+  
+  .playlist-btn.remove:hover {
+    background-color: #EF5350; /* richer soft red on hover */
+  }
+  
+  
   

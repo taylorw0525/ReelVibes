@@ -34,11 +34,14 @@ const Review = mongoose.model('Review', new mongoose.Schema({
   rating: Number
 }));
 
-const Playlist = mongoose.model('Playlist', new mongoose.Schema({
-  userId: String,
-  name: String,
-  movies: [String]
-}));
+const PlaylistSchema = new mongoose.Schema({
+  userId: { type: String, required: true },
+  playlistName: { type: String, required: true }, // e.g., "Favorites" or "Watch Later"
+  movieId: { type: String, required: true },      // IMDb ID
+});
+
+// Assign to variable *and* export
+const Playlist = mongoose.model("Playlist", PlaylistSchema);
 
 // Mood mapping based on genre
 const moodMap = {
@@ -54,11 +57,11 @@ const moodMap = {
 };
 
 app.get('/', (req, res) => {
-  res.send('API is running');
+  res.send('API is running and is healthy!');
 });
 
 // Routes
-// ✅ Register Route
+// Register Route
 app.post('/api/users/register', async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -73,7 +76,7 @@ app.post('/api/users/register', async (req, res) => {
   res.json({ message: 'User registered' });
 });
 
-// ✅ Login Route
+// Login Route
 app.post('/api/users/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -91,9 +94,48 @@ app.post('/api/reviews', async (req, res) => {
   res.json({ message: 'Review submitted' });
 });
 
-app.get('/api/playlists/:userId', async (req, res) => {
-  const playlists = await Playlist.find({ userId: req.params.userId });
-  res.json(playlists);
+// Get all saved movies for a user and playlist
+app.get('/api/playlist/:userId/:playlistName', async (req, res) => {
+  try {
+    const { userId, playlistName } = req.params;
+    const savedMovies = await Playlist.find({ userId, playlistName });
+    res.json(savedMovies);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Add a movie to user's named playlist
+app.post('/api/playlist', async (req, res) => {
+  try {
+    const { userId, playlistName, movieId } = req.body;
+
+    // Prevent duplicates in same playlist
+    const existing = await Playlist.findOne({ userId, playlistName, movieId });
+    if (existing) {
+      return res.status(400).json({ message: 'Movie already saved in this playlist' });
+    }
+
+    const newEntry = new Playlist({ userId, playlistName, movieId });
+    await newEntry.save();
+    res.status(201).json(newEntry);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Remove a movie from user's named playlist
+app.delete('/api/playlist', async (req, res) => {
+  try {
+    const { userId, playlistName, movieId } = req.body;
+    const deleted = await Playlist.findOneAndDelete({ userId, playlistName, movieId });
+    if (!deleted) {
+      return res.status(404).json({ message: 'Movie not found in this playlist' });
+    }
+    res.json({ message: 'Movie removed from playlist' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
