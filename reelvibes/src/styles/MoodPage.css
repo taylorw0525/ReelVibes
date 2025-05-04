@@ -125,6 +125,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   z-index: 0;
+  padding-top: 100px;
 }
 
 
@@ -278,3 +279,23 @@ body {
     color: #888;
     background: transparent;
     z-index: 1;}
+
+    .movie-poster {
+      width: 20%;
+      height: 500 px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .movie-ind-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .movie-info-text {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: white;
+    }
