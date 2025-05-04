@@ -8,11 +8,36 @@ const MoodPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Plain moods (used in logic and search)
   const moods = [
-    "Happy", "Sad", "Romantic", "Thrilled",
-    "Reflective", "Humorous", "Curious", "Angry",
-    "Fearful", "Heartbroken", "Seductive", "Sleepy",
+    "Happy", 
+    "Sad", 
+    "Romantic", 
+    "Thrilled",
+    "Reflective", 
+    "Humorous", 
+    "Curious", 
+    "Angry",
+    "Fearful", 
+    "Heartbroken", 
+    "Seductive", 
+    "Sleepy",
   ];
+
+  const moodEmojis = {
+    "Happy": "😊",
+    "Sad": "😢",
+    "Romantic": "❤️",
+    "Thrilled": "🤩",
+    "Reflective": "🤔",
+    "Humorous": "😂",
+    "Curious": "🧐",
+    "Angry": "😡",
+    "Fearful": "😱",
+    "Heartbroken": "💔",
+    "Seductive": "😘",
+    "Sleepy": "😴",
+  };
 
   const moodSynonyms = {
     "Happy": ["Joyful", "Cheerful"],
@@ -77,7 +102,7 @@ const MoodPage = () => {
               className={`mood-button ${selectedMood === mood ? "active" : ""}`}
               onClick={() => handleMoodClick(mood)}
             >
-              {mood}
+              {mood} {moodEmojis[mood]}
             </button>
           ))}
         </div>

@@ -82,7 +82,7 @@ body {
 .mood-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
+  gap: 2.5rem;
   max-width: 50rem;
   margin: 1.875rem auto 0;
 }

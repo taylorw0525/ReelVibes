@@ -96,24 +96,24 @@
   }
   
   .playlist-btn:hover {
-    background-color: #333; /* subtle dark grey on hover */
+    background-color: #333;
     transform: scale(1.05);
   }
   
   .playlist-btn.add {
-    background-color: #4CAF50; /* soft green */
+    background-color: #4CAF5044;
   }
   
   .playlist-btn.add:hover {
-    background-color: #45A049; /* slightly darker green on hover */
+    background-color: #45A049;
   }
   
   .playlist-btn.remove {
-    background-color: #E57373; /* soft red (salmon tone) */
+    background-color: #E57373;
   }
   
   .playlist-btn.remove:hover {
-    background-color: #EF5350; /* richer soft red on hover */
+    background-color: #EF5350;
   }
 
   .SavedPlaylistPage{
