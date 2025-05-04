@@ -47,7 +47,6 @@ body {
   min-height: 100vh;
   position: relative;
   z-index: 1;
-  background-color: #121212;
 }
 
 .mood-title {
@@ -73,24 +72,24 @@ body {
 }
 
 .title-description {
-  padding-top: 6rem;
+  padding-top: 4rem;
   color: white;
-  text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 20px #00bfff;
+  text-shadow: 0 0 5px #2a325f, 0 0 10px #00bfff, 0 0 20px #00bfff;
   padding-bottom: 20px;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .mood-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   max-width: 50rem;
   margin: 1.875rem auto 0;
 }
 
 .mood-button {
   height: 3.125rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   border: 0.125rem solid #fff;
   border-radius: 1.5625rem;
   background-color: transparent;
@@ -117,31 +116,31 @@ body {
 
 /* ========== Background & Overlay ========== */
 .movie-page {
-  min-height: 200vh;
+  position: relative;
+  min-height: 100%;
   background-color: #121212;
-  background-image: url("./../resources/images/dark-large.jpg"); 
+  
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  position: relative;
   z-index: 0;
 }
+
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
-  background-color: rgba(19, 19, 19, 0.69); 
-  align-items: center;
-  text-align: center;
+  min-height: 100%;
+  background-color: rgba(3, 2, 9, 0.69);
   padding-top: 8rem;
   font-size: 2rem;
+  text-align: center;
   z-index: 1;
-  min-height: 100vh;
 }
+
 
 /* ========== Movie List Background Section ========== */
 .movie-list-background {
