@@ -150,14 +150,6 @@ body {
   z-index: 2;
 }
 
-/* Layout for movie cards */
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
 /* ========== Responsive Design ========== */
 @media (max-width: 1024px) {
   .mood-buttons {
