@@ -32,7 +32,7 @@ function App() {
 
 
         <div className="start-button-container">
-        {user ? (<Link to="/moodpage">
+          {user ? (<Link to="/moodpage">
             <button className="start-button">Select Mood</button>
           </Link>):(
           <Link to="/login">
