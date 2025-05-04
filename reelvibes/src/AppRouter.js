@@ -7,6 +7,8 @@ import MoviePage from "./MoodSelection/MoviePage"; // Movie details
 import Login from "./Forms/Login"; 
 import Signup from "./Forms/Signup";
 import PlaylistPage from "./MoodSelection/PlayListPage";
+import Profile from "./Forms/Profile"; // Add this at the top
+
 
 const AppRouter = () => {
   return (
@@ -19,6 +21,8 @@ const AppRouter = () => {
         <Route path="/my-playlist" element={<PlaylistPage />} />
         <Route path="/moviepage" element={<MoviePage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+
       </Routes>
     </Router>
   );
