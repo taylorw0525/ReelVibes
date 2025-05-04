@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import MovieList from "./MovieList"; 
-import "./../styles/MovieList.css"; 
+import MovieList from "./MovieList";
+import "./../styles/MovieList.css";
 import "./../styles/MoodPage.css";
 
 const MoodPage = () => {
   const [selectedMood, setSelectedMood] = useState(null);
-  const [movies, setMovies] = useState([]); // Movie list
-  const [loading, setLoading] = useState(false); // Loading state
-
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const moods = [
     "Happy", "Sad", "Romantic", "Thrilled",
@@ -18,11 +17,11 @@ const MoodPage = () => {
   const handleMoodClick = (mood) => {
     setSelectedMood(mood);
     if (mood) {
-        setLoading(true); // Set loading before fetching
-        fetchMovies(mood); // Fetch movies dynamically
-      } else {
-          fetchMovies("a"); // defaulting to A fro now
-      }
+      setLoading(true);
+      fetchMovies(mood);
+    } else {
+      fetchMovies("a");
+    }
   };
 
   const fetchMovies = async (searchQuery) => {
@@ -30,41 +29,40 @@ const MoodPage = () => {
       const API_URL = `https://imdb.iamidiotareyoutoo.com/search?q=${encodeURIComponent(searchQuery)}`;
       const response = await fetch(API_URL);
       const data = await response.json();
-      setMovies(data.description || []); // Update movie list
+      setMovies(data.description || []);
     } catch (error) {
       console.error("Error fetching movies:", error);
     } finally {
-      setLoading(false); // Stop loading after fetching
+      setLoading(false);
     }
   };
 
   return (
     <div className="mood-page movie-page">
-     <div className="overlay">
+      <div className="overlay">
+        <p className="title-description">Select a mood to see movie recommendations.</p>
 
-      <p className="title-description">Select a mood to see movie recommendations.</p>
-      <div className="mood-buttons">
-        {moods.map((mood) => (
-          <button
-            key={mood}
-            className={`mood-button ${selectedMood === mood ? "active" : ""}`}
-            onClick={() => handleMoodClick(mood)}
-          >
-            {mood}
-          </button>
-        ))}
-      </div>
-      {/* Placeholder: Display related movies */}
-      <div className="movies-section">
-
+        <div className="mood-buttons">
+          {moods.map((mood) => (
+            <button
+              key={mood}
+              className={`mood-button ${selectedMood === mood ? "active" : ""}`}
+              onClick={() => handleMoodClick(mood)}
+            >
+              {mood}
+            </button>
+          ))}
         </div>
-        <section>
-        {loading ? (
-          <p style={{ textAlign: "center", color: "#fff" }}>Updating...</p>
-        ) : (
-          <MovieList movies={movies} />
-        )}
-      </section>
+
+        <div className="movie-list-background">
+          {loading ? (
+            <p style={{ textAlign: "center", color: "#fff", marginTop: "2rem" }}>Updating...</p>
+          ) : (
+            <div className="movie-list">
+              <MovieList movies={movies} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
