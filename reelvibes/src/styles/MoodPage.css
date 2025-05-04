@@ -1,152 +1,181 @@
+/* ========== Global Resets ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+  background-color: #121212;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #121212;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+               Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #1f1f1f;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.25rem;
+}
+
+/* ========== Main App Container ========== */
+.App {
+  min-height: 100vh;
+  background-color: #121212;
+  overflow-x: hidden;
+}
+
+/* ========== Mood Page Layout ========== */
 .mood-page {
-    text-align: center;
-    padding: 20px;
-  }
-  .mood-title {
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    background: linear-gradient(90deg, #d60f19, #e40c16, #e50914);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: bounce 2s infinite;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 30px;
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  .title-description{
-    padding-top: 6rem;
-    color: white;
-    text-shadow:
-    0 0 5px #00bfff,
-    0 0 10px #00bfff,
-    0 0 20px #00bfff;
-    padding-bottom: 20px;
-  }
+  text-align: center;
+  padding: 1.25rem;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-color: #121212;
+}
 
-  
+.mood-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(90deg, #d60f19, #e40c16, #e50914);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: bounce 2s infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.title-description {
+  padding-top: 6rem;
+  color: white;
+  text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 20px #00bfff;
+  padding-bottom: 20px;
+  margin-bottom: 2rem;
+}
+
+.mood-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 50rem;
+  margin: 1.875rem auto 0;
+}
+
+.mood-button {
+  height: 3.125rem;
+  font-size: 1rem;
+  border: 0.125rem solid #fff;
+  border-radius: 1.5625rem;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.mood-button:hover {
+  text-shadow: 0 0 0.3125rem #00bfff, 0 0 0.625rem #00bfff, 0 0 1.25rem #00bfff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mood-button.active {
+  color: #000;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.movies-section {
+  margin-top: 2.5rem;
+  background-color: #000;
+}
+
+/* ========== Background & Overlay ========== */
+.movie-page {
+  min-height: 200vh;
+  background-color: #121212;
+  background-image: url("./../resources/images/dark-large.jpg"); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(19, 19, 19, 0.69); 
+  align-items: center;
+  text-align: center;
+  padding-top: 8rem;
+  font-size: 2rem;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ========== Movie List Background Section ========== */
+.movie-list-background {
+  background-color: transparent;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  z-index: 2;
+}
+
+/* Layout for movie cards */
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 1024px) {
   .mood-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    justify-content: center;
-    margin-top: 30px;
-    max-width: 800px; /* Set a max width for the grid */
-    margin: 0 auto; /* Center the grid */
-  }
-  
-  .mood-button {
-    height: 50px;
-    font-size: 16px;
-    border: 2px solid #fff;
-    border-radius: 25px;
-    background-color: transparent;
-    color: #fff; /* Default text color */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-  .mood-button:hover {
-    text-shadow:
-    0 0 5px #00bfff,
-    0 0 10px #00bfff,
-    0 0 20px #00bfff;
-    background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
-  }
-  
-  
-  .mood-button.active {
-    color: #000;
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.8); /* Lighten on hover */
-  }
-  
-  .movies-section {
-    background-color: #000;
-    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .movie-page {
-    position: relative;
-    min-height: 200vh; /* Make page tall enough to scroll */
-    background-image: url("./../resources/images/dark-large.jpg"); 
-    background-repeat: no-repeat; /* No repeat, just fixed */
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed; /* Parallax effect */
+  .mood-title {
+    font-size: 2rem;
   }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; 
-    background-color: rgba(19, 19, 19, 0.69); 
-    align-items: center;
-    text-align: center;
-  }
-  
-  
-  .movie-ind-title {
-    color: white;
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Subtle text shadow for better readability */
-  }
-  
-  .movie-ind-description {
-    color: white;
-    font-size: 18px;
-    margin-top: 10px;
-    max-width: 600px; /* Limit width for better readability */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  .mood-buttons {
+    grid-template-columns: 1fr;
   }
 
-  .movie-page-text {
-    text-align: center;
+  .mood-title {
+    font-size: 1.75rem;
   }
-
-  .movie-page-text p {
-    text-align: center;
-    margin: 0 auto; /*Center block elements horizontally*/
-  }
-
-  .movie-page-title-glow {
-    text-shadow:
-    0 0 5px #00bfff,
-    0 0 10px #00bfff,
-    0 0 20px #00bfff,
-    0 0 40px #00bfff !important;
-  }
-
-  .movie-info-section {
-    display: flex;
-    flex-wrap:nowrap;
-    align-items: flex-start;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 40px;
-  }
-
-  .movie-poster {
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .movie-info-text {
-    text-align: left;
-    color: white;
-    min-width: 250px;
-    padding-top: 20px;
-  }
+}
