@@ -268,3 +268,14 @@ html, body {
   text-align: center;
 }
 
+.saved-playlist-background-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("./resources/images/dark-large-d.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
