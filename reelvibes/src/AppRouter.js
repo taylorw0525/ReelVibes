@@ -8,6 +8,7 @@ import Login from "./Forms/Login";
 import Signup from "./Forms/Signup";
 import PlaylistPage from "./MoodSelection/PlayListPage";
 import Profile from "./Forms/Profile"; // Add this at the top
+import SearchResultPage from "./MoodSelection/SearchResultPage";
 
 
 const AppRouter = () => {
@@ -22,6 +23,7 @@ const AppRouter = () => {
         <Route path="/moviepage" element={<MoviePage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/search-result" element={<SearchResultPage />} />
 
       </Routes>
     </Router>

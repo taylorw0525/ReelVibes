@@ -87,11 +87,14 @@ html, body {
   flex: 1;
   display: flex;
   justify-content: center;
+  form {
+    width: 60%;
+  }
 }
 
 .search-input {
-  width: 60%;
-  padding: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   border: none;
   font-size: 1rem;
@@ -100,6 +103,7 @@ html, body {
 .nav-right {
   display: flex;
   gap: 1.25rem;
+  margin-left: 2rem;
 }
 
 .nav-item {
@@ -259,5 +263,9 @@ html, body {
 .logout-button:hover {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.search-result-page{
+  text-align: center;
 }
 
