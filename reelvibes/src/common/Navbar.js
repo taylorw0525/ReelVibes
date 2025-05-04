@@ -18,6 +18,9 @@ const Navbar = () => {
     ? capitalizeWords(user.user.username) 
     : "Guest";
 
+  // Decide where to link for Saved Playlist
+  const playlistLink = user ? "/my-playlist" : "/login";
+
   return (
     <nav className="navbar">
       <div className="nav-left">
@@ -35,7 +38,7 @@ const Navbar = () => {
       <div className="nav-right">
         <Link to="/" className="nav-item">Home</Link>
         <Link to="/moodpage" className="nav-item">Mood Selection</Link>
-        <Link to="/my-playlist" className="nav-item">Saved Playlist</Link>
+        <Link to={playlistLink} className="nav-item">Saved Playlist</Link>
         <Link to="/profile" className="nav-item">Profile</Link>
         {user && (
           <button onClick={logout} className="logout-button">Logout</button>
