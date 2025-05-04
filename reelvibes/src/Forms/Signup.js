@@ -49,7 +49,6 @@ const Signup = () => {
     }
   
     try {
-      console.log("Form data:", formData); // Debugging line
       // Step 1: Signup/Register
       const res = await fetch("http://localhost:5000/api/users/register", {
         method: "POST",
@@ -76,8 +75,6 @@ const Signup = () => {
         const loginData = await loginRes.json();
   
         if (loginRes.ok) {
-          console.log("Auto-login successful:", loginData);
-
           // Save user to localStorage
           localStorage.setItem("user", JSON.stringify(loginData));
         

@@ -57,7 +57,7 @@ const moodMap = {
 };
 
 app.get('/', (req, res) => {
-  res.send('API is running');
+  res.send('API is running and is healthy!');
 });
 
 // Routes

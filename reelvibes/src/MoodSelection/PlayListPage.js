@@ -23,7 +23,6 @@ const PlaylistPage = () => {
           const movieRes = await fetch(`https://imdb.iamidiotareyoutoo.com/search?q=${item.movieId}`);
           const movieData = await movieRes.json();
           const movie = movieData.description[0];
-          console.log("Movie data:", movieData.description[0]); // Debugging line
 
           return {
             ...movie,
