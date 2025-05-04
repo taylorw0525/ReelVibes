@@ -77,8 +77,10 @@ html, body {
 }
 
 .nav-left {
+  font-size: 1.5rem; /* You can increase this as needed */
   font-weight: bold;
-  font-size: 1.5rem;
+  color: white;
+  margin-left: 20px;
 }
 
 .nav-center {
