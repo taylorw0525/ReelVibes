@@ -57,8 +57,8 @@ const PlaylistPage = () => {
   if (loading) return <p style={{ color: '#fff', textAlign: 'center' }}>Loading playlists...</p>;
 
   return (
-    <div className='SavedPlaylistPage saved-playlist-background-image'>
-      <h2 style={{ color: '#fff' }}>Your Saved Playlists</h2>
+    <div className='SavedPlaylistPage'>
+      <h2 style={{ color: '#aaa' }}>Your Saved Playlists</h2>
       {isEmpty ? (
         <div style={{ color: '#fff', textAlign: 'center', marginTop: '40px' }}>
           <p>Nothing here yet. Search movies and add them to your playlist!</p>
@@ -78,8 +78,8 @@ const PlaylistPage = () => {
         Object.entries(groupedPlaylists).map(([playlistName, movies]) => (
           <div key={playlistName} style={{ marginBottom: '50px' }}>
             <h2 style={{
-              color: '#fff',
-              borderBottom: '2px solid #fff',
+              color: '#aaa',
+              borderBottom: '2px solid #aaa',
               paddingBottom: '5px',
               marginBottom: '20px',
               textAlign: 'left',

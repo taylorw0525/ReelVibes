@@ -18,6 +18,8 @@
   
   .movie-card-container {
     max-width: 250px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
   }
   
   .movie-card {
@@ -39,7 +41,7 @@
   }
   
   .movie-details {
-    padding: 15px;
+    padding: 5px;
     flex-grow: 1;
     overflow: hidden;
     display: flex;
@@ -113,6 +115,15 @@
   .playlist-btn.remove:hover {
     background-color: #EF5350; /* richer soft red on hover */
   }
+
+  .SavedPlaylistPage{
+    padding: 100px 20px 20px 20px;
+    height: 100vh;
+    text-align: center;
   
+    .movie-list {
+      display: flex;
+    }
+  }
   
   

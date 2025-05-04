@@ -261,21 +261,3 @@ html, body {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
-.SavedPlaylistPage{
-  padding: 100px 20px 20px 20px;
-  background-color: #302f2f;
-  height: 100vh;
-  text-align: center;
-}
-
-.saved-playlist-background-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("./resources/images/dark-large-d.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
