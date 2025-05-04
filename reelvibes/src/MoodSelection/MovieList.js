@@ -11,11 +11,11 @@ const MovieList = ({ movies, showDetails }) => {
         const year = movie["#YEAR"] || "Unknown Year";
         const actors = movie["#ACTORS"] || "Unknown Actors";
       
-        const queryString = `?title=${encodeURIComponent(title)}&poster=${encodeURIComponent(poster)}&year=${encodeURIComponent(year)}&actors=${encodeURIComponent(actors)}`;
+        const queryString = `?title=${encodeURIComponent(title)}&poster=${encodeURIComponent(poster)}&year=${encodeURIComponent(year)}&actors=${encodeURIComponent(actors)}}`;
       
         return (
           <Link
-            key={movie["#IMDB_ID"]}
+            key={movie["IMDB_ID"]}
             to={`/moviepage/${queryString}`}
             className="movie-card-link"
           >
