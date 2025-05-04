@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "../App.css";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   function capitalizeWords(str) {
     return str
@@ -18,8 +20,16 @@ const Navbar = () => {
     ? capitalizeWords(user.user.username) 
     : "Guest";
 
-  // Decide where to link for Saved Playlist
   const playlistLink = user ? "/my-playlist" : "/login";
+
+  // Handle search submit
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search-result?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery(""); // clear search input
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -32,7 +42,16 @@ const Navbar = () => {
       </div>
 
       <div className="nav-center">
-        <input type="text" placeholder="Search..." className="search-input" />
+        <form onSubmit={handleSearchSubmit}>
+          <input 
+            type="text" 
+            placeholder="Search..." 
+            className="search-input"
+            style={{ width: "100%", minWidth: "200px" }}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </form>
       </div>
 
       <div className="nav-right">
