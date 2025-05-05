@@ -109,24 +109,19 @@ const MoviePage = () => {
                         <img src={poster} alt={poster} width="300" className="movie-poster"/>
                             
                         <div className="movie-info-text">
-                            <p className="movie-ind-description">
-                                <strong>Year:</strong> {year}
-                            </p>
-                            <p className="movie-ind-description">
-                                <strong>Actors:</strong> {actors}
-                            </p>
-                            <p className="movie-ind-description">
-                                <strong>Plot:</strong> {movieDetails.plot}
-                            </p>
-                            <p className="movie-ind-description">
-                                <strong>Streaming Platforms:</strong> {platforms.stream}
-                            </p>
-                            <p className="movie-ind-description">
-                                <strong>Rental Platforms:</strong> {platforms.rent}
-                            </p>
-                            <p className="movie-ind-description">
-                                <strong>Available for Purchase:</strong> {platforms.buy}
-                            </p>
+                            {/* Right Rectangle */}
+                            <div className="platforms-rectangle">
+                                <p><strong>Streaming Platforms:</strong></p>{platforms.stream}
+                                <p><strong>Rental Platforms:</strong></p>{platforms.rent}
+                                <p><strong>Available for Purchase:</strong></p>{platforms.buy}
+                            </div>
+
+                            {/* Right Rectangle */}
+                            <div className="details-rectangle">
+                                <p><strong>Plot:</strong></p>{movieDetails.plot}
+                                <p><strong>Actors:</strong></p>{actors}
+                                <p><strong>Year:</strong></p>{year}
+                            </div>
                         </div>
                     </div>
                     
