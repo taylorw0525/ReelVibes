@@ -23,8 +23,8 @@ Install backend dependencies:
 ```npm install```
 ### 3. Run the backend server (make sure MongoDB is running locally):
 
-```node server```
-The backend server runs on: http://localhost:5000
+```node index```
+The backend server runs on: http://localhost:5050
 
 ### 4. Setup & Run the Frontend (React App)
 Open new terminal 
