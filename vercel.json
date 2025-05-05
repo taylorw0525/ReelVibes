@@ -5,6 +5,7 @@
       { "src": "reelvibes/package.json", "use": "@vercel/static-build", "config": { "distDir": "reelvibes/build" } }
     ],
     "rewrites": [
-      { "source": "/api/(.*)", "destination": "/reelvibes/backend/server.js" }
+      { "source": "/api/(.*)", "destination": "/reelvibes/backend/server.js" },
+      { "source": "/(.*)", "destination": "/reelvibes/build/index.html" }
     ]
   }
