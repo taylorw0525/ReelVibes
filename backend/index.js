@@ -6,7 +6,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 
 // Middleware
 app.use(cors());
@@ -59,6 +59,7 @@ const moodMap = {
 app.get('/', (req, res) => {
   res.send('API is running and is healthy!');
 });
+
 
 // Routes
 // Register Route
@@ -197,7 +198,7 @@ app.get('/api/mood/from-title', async (req, res) => {
 
 // Start Server
 if (!process.env.VERCEL) {
-  app.listen(PORT, () => console.log(`Server running locally on port ${PORT}`));
+  app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
 }
 
 module.exports = app;
