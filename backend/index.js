@@ -196,9 +196,8 @@ app.get('/api/mood/from-title', async (req, res) => {
 });
 
 // Start Server
-// 🚀 ✅ **Ensure app runs locally but works as a Serverless Function on Vercel**
-if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => console.log(`Server running locally on port ${PORT}`));
 }
 
 module.exports = app;
