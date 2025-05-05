@@ -15,7 +15,7 @@ const PlaylistPage = () => {
         const playlistName = 'favourite';
         const userId = user.user.id;
 
-        const res = await fetch(`http://localhost:5000/api/playlist/${userId}/${playlistName}`);
+        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/playlist/${userId}/${playlistName}`);
         const data = await res.json();
 
         // For each item, fetch full movie details

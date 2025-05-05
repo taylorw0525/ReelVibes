@@ -52,7 +52,7 @@ const Signup = () => {
   
     try {
       // Step 1: Signup/Register
-      const res = await fetch("http://localhost:5000/api/users/register", {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

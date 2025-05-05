@@ -20,7 +20,7 @@ useEffect(() => {
       const playlistName = 'favourite';
       console.log("Fetching playlist for user:", user);
 
-      const res = await fetch(`http://localhost:5000/api/playlist/${userId}/${playlistName}`);
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/playlist/${userId}/${playlistName}`);
       const data = await res.json();
 
       if (res.ok) {
@@ -41,7 +41,7 @@ const handleAddToPlaylist = async (imdbId) => {
   if (!user || !user.user || !user.user.id) return alert("Please login first!");
 
   try {
-    const res = await fetch(`http://localhost:5000/api/playlist`, {
+    const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/playlist`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -66,7 +66,7 @@ const handleRemoveFromPlaylist = async (imdbId) => {
   if (!user || !user.user || !user.user.id) return alert("Please login first!");
 
   try {
-    const res = await fetch(`http://localhost:5000/api/playlist`, {
+    const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/playlist`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
