@@ -1,14 +1,11 @@
 {
     "version": 2,
     "builds": [
-      { "src": "reelvibes/backend/server.js", "use": "@vercel/node" },
+      { "src": "reelvibes/backend/index.js", "use": "@vercel/node" },
       { "src": "reelvibes/package.json", "use": "@vercel/static-build", "config": { "distDir": "reelvibes/build" } }
     ],
     "rewrites": [
-      { "source": "/api/(.*)", "destination": "/reelvibes/backend/server.js" },
+      { "source": "/api/(.*)", "destination": "/reelvibes/backend/index.js" },
       { "source": "/(.*)", "destination": "/reelvibes/build/index.html" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "reelvibes/backend/server.js" }
     ]
   }
