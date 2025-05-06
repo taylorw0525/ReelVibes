@@ -96,6 +96,58 @@ app.post('/api/reviews', async (req, res) => {
   res.json({ message: 'Review submitted' });
 });
 
+app.put('/api/reviews/:reviewId', async (req, res) => {
+  const { reviewId } = req.params;
+  const { content, rating } = req.body;
+
+  try {
+    const review = await Review.findById(reviewId);
+    if (!review) {
+      return res.status(404).json({ message: 'Review not found' });
+    }
+
+    review.content = content || review.content;
+    review.rating = rating || review.rating;
+    await review.save();
+
+    res.json({ message: 'Review updated' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating review', error });
+  }
+});
+
+app.get('/api/reviews/movie/:movieId', async (req, res) => {
+  const { movieId } = req.params;
+
+  try {
+    const reviews = await Review.find({ movieId });
+    if (!reviews.length) {
+      return res.status(404).json({ message: 'No reviews found for this movie' });
+    }
+
+    res.json(reviews);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching reviews', error });
+  }
+});
+
+
+app.delete('/api/reviews/:reviewId', async (req, res) => {
+  const { reviewId } = req.params;
+
+  try {
+    const review = await Review.findByIdAndDelete(reviewId);
+    if (!review) {
+      return res.status(404).json({ message: 'Review not found' });
+    }
+
+    res.json({ message: 'Review deleted' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting review', error });
+  }
+});
+
+
 // Get all saved movies for a user and playlist
 app.get('/api/playlist/:userId/:playlistName', async (req, res) => {
   try {
