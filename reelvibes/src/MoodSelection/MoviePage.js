@@ -106,7 +106,7 @@ const MoviePage = () => {
                     </div>
 
                     <div className="movie-info-section">
-                        <img src={poster} alt={poster} width="300" className="movie-poster"/>
+                        <img src={poster} alt={poster} width="300" className="movie-poster movie-poster-II"/>
                             
                         <div className="movie-info-text">
                             {/* Right Rectangle */}
