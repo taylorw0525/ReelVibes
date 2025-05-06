@@ -280,6 +280,7 @@ body {
     background: transparent;
     z-index: 1;}
 
+  .movie-info-section{
     .movie-poster {
       width: 20em;
       height: 500 px;
@@ -287,6 +288,7 @@ body {
       border-radius: 10px 10px 0 0;
       margin-left: 30px;
     }
+  }
 
     .movie-ind-title {
       font-size: 2rem;
