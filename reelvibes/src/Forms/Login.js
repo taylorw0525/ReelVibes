@@ -7,35 +7,36 @@ import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  
+    setError(""); // Clear previous error
+
     try {
       const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-  
+
       const data = await res.json();
-  
+
       if (res.ok) {
         console.log("Login successful:", data);
         login(data); // store user globally
         navigate("/"); // Redirect to home
       } else {
-        setError(data.message || "Login failed");
+        setError(data.message || "Username or password is incorrect.");
       }
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Please try again.");
     }
-  };  
+  };
 
   return (
     <div className="App">
@@ -47,6 +48,9 @@ const Login = () => {
       <div className="content-layer">
         <form className="login-form" onSubmit={handleLogin}>
           <h2 className="login-title">Login</h2>
+
+          {error && <p className="login-error">{error}</p>}
+
           <input
             type="email"
             placeholder="Email"
