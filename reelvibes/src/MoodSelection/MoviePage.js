@@ -184,7 +184,7 @@ const MoviePage = () => {
                         <div className="details-section">
                             <h2 className="movie-ind-title">Movie Details</h2>
                             <div className="details-item">
-                                <p><strong>Plot:</strong> {movieDetails.plot}</p>
+                                <p><strong>Plot:</strong> {movieDetails.plot || "Not available"}</p>
                             </div>
                             <div className="details-item">
                                 <p><strong>Actors:</strong> {actors}</p>
