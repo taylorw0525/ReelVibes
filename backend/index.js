@@ -78,6 +78,47 @@ app.post('/api/users/register', async (req, res) => {
   res.json({ message: 'User registered' });
 });
 
+// Update User Route (profile update)
+// Update User Route
+app.put('/api/users/:id', async (req, res) => {
+  const { id } = req.params;
+  const { username, email, password } = req.body;
+
+  try {
+    // Check if email is already taken (except by self)
+    const existingUser = await User.findOne({ email });
+    if (existingUser && existingUser._id.toString() !== id) {
+      return res.status(400).json({ message: 'Email is already in use' });
+    }
+
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update fields
+    user.username = username || user.username;
+    user.email = email || user.email;
+
+    // Only update password if provided
+    if (password && password.trim() !== "") {
+      user.password = password; // assuming you have pre-save hook to hash
+    }
+
+    await user.save();
+
+    // Return updated user (omit password)
+    res.json({
+      id: user._id,
+      username: user.username,
+      email: user.email,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Login Route
 app.post('/api/users/login', async (req, res) => {
   const { email, password } = req.body;

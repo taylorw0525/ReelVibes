@@ -1,9 +1,9 @@
 .signup-form {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 110px 150px;
+    padding: 50px 50px;
     border-radius: 12px;
-    max-width: 600px;
-    margin: 70px auto;
+    max-width: 500px;
+    margin: 30px auto;
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
     backdrop-filter: blur(5px);
@@ -57,7 +57,7 @@
   
   .signup-link {
     display: block;
-    margin-top: 50px;
+    margin-top: 20px;
     color: #00bfff;
     font-size: 16px;
     text-decoration: none;
