@@ -52,7 +52,8 @@ const Signup = () => {
   
     try {
       // Step 1: Signup/Register
-      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/register`, {
+      const res = await fetch("http://localhost:5050/api/users/register", {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -68,7 +69,8 @@ const Signup = () => {
         console.log("Account created:", data);
   
         // Step 2: Auto-login after signup
-        const loginRes = await fetch("http://localhost:5000/api/users/login", {
+        const loginRes = await fetch("http://localhost:5050/api/users/login", {
+
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password }),
