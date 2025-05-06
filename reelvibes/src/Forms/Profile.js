@@ -1,5 +1,3 @@
-// /Forms/Profile.js
-
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import "../App.css";
@@ -19,27 +17,42 @@ const Profile = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSave = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/${user.user.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: `${formData.first} ${formData.last}`,
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+  const handleSave = async () => {
+    console.log("Sending update with:", formData);
 
-      const updatedUser = await res.json();
+    try {
+      const res = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/api/users/${user.user.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: `${formData.first} ${formData.last}`,
+            email: formData.email,
+            password: formData.password || undefined, // avoid overwriting with ""
+          }),
+        }
+      );
+
+      const updatedData = await res.json();
+      console.log("Response from server:", updatedData);
 
       if (res.ok) {
+        const updatedUser = {
+          ...user,
+          user: {
+            ...user.user,
+            username: `${formData.first} ${formData.last}`,
+            email: formData.email,
+          },
+        };
+
         setUser(updatedUser);
         localStorage.setItem("user", JSON.stringify(updatedUser));
         setEditing(false);
+        alert("Profile updated successfully!");
       } else {
-        alert(updatedUser.message || "Update failed.");
+        alert(updatedData.message || "Update failed.");
       }
     } catch (err) {
       console.error("Update error:", err);
@@ -55,7 +68,7 @@ const Profile = () => {
       </div>
 
       <div className="content-layer">
-        <form className="profile-form" onSubmit={handleSave}>
+        <form className="profile-form">
           <h2 className="profile-title">User Profile</h2>
 
           <input
@@ -93,7 +106,13 @@ const Profile = () => {
           />
 
           {editing ? (
-            <button type="submit" className="profile-button">Save Changes</button>
+            <button
+              type="button"
+              className="profile-button"
+              onClick={handleSave}
+            >
+              Save Changes
+            </button>
           ) : (
             <button
               type="button"

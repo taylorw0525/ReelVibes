@@ -4,6 +4,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const axios = require('axios');
 require('dotenv').config();
+const userRoutes = require("./routes/users");
+const User = require("./models/User");
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5050;
@@ -11,6 +16,9 @@ const PORT = process.env.PORT || 5050;
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use("/api/users", require("./routes/users"));
+
+
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
@@ -21,11 +29,6 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch(err => console.log(err));
 
 // Schemas & Models
-const User = mongoose.model('User', new mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
-}));
 
 const Review = mongoose.model('Review', new mongoose.Schema({
   movieId: String,
