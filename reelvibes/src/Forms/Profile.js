@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../App.css";
 import "./Profile.css";
 
@@ -83,8 +85,10 @@ const Profile = () => {
         }
 
         setEditing(false);
-        alert("Profile updated!");
-        navigate("/");
+        toast.success("Profile updated! Redirecting to home page.");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         alert(updatedUser.message || "Update failed.");
       }
@@ -95,7 +99,6 @@ const Profile = () => {
       setIsSaving(false);
     }
   };
-
 
   const handleEdit = () => {
     setEditing(true); // Enable editing mode
@@ -197,6 +200,7 @@ const Profile = () => {
           )}
         </form>
       </div>
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };
