@@ -21,6 +21,7 @@ const Navbar = () => {
     : "Guest";
 
   const playlistLink = user ? "/my-playlist" : "/login";
+  const profileLink = user ? "/profile" : "/login";
 
   // Handle search submit
   const handleSearchSubmit = (e) => {
@@ -58,7 +59,7 @@ const Navbar = () => {
         <Link to="/" className="nav-item">Home</Link>
         <Link to="/moodpage" className="nav-item">Mood Selection</Link>
         <Link to={playlistLink} className="nav-item">Saved Playlist</Link>
-        <Link to="/profile" className="nav-item">Profile</Link>
+        <Link to={profileLink} className="nav-item">Profile</Link>
         {user && (
           <button onClick={logout} className="logout-button">Logout</button>
         )}

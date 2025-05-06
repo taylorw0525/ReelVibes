@@ -1,6 +1,6 @@
 .profile-form {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 110px 150px;
+    padding: 50px 50px;
     border-radius: 12px;
     max-width: 600px;
     margin: 70px auto;
@@ -19,7 +19,7 @@
     display: block;
     width: 100%;
     padding: 12px;
-    margin: 25px 0;
+    margin: 15px 0;
     border-radius: 8px;
     border: none;
     font-size: 16px;
@@ -41,10 +41,55 @@
     border-radius: 30px;
     cursor: pointer;
     transition: 0.3s ease;
+
+  }
+
+  .cancel-button{
+    margin-left: 20px;
+    background-color: #dd7a7a;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
   }
   
   .profile-button:hover {
     background-color: #009acd;
     box-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
   }
+
+  .cancel-button:hover {
+    background-color: #d62a4f;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+  }
+
+  .profile-label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .profile-row {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .profile-label {
+    width: 120px; /* You can adjust width as needed */
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .profile-input {
+    flex: 1;
+    padding: 8px;
+    margin-left: 10px;
+  }
+  
+  
   
